@@ -1,0 +1,2 @@
+# Plans and pricing
+Helix Cloud Storage offers four plans. The Free plan includes 5 GB of storage for one user at no cost. The Pro plan costs $12 per user per month and includes 1 TB of storage. The Business plan costs $25 per user per month and includes 5 TB of storage, SSO and audit logs. The Enterprise plan has custom pricing, unlimited storage and a dedicated account manager. Paying annually gives two months free on Pro and Business.

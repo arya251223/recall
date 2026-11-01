@@ -1,0 +1,625 @@
+{
+  "embedder": "all-MiniLM-L6-v2",
+  "llm": "extractive-offline",
+  "kb_docs": 12,
+  "tune_intents": 9,
+  "test_intents": 9,
+  "test_queries_answerable": 45,
+  "queries_out_of_scope": 12,
+  "queries_injection": 5,
+  "seeds": 10,
+  "assumed_llm_latency_ms": 800.0,
+  "min_precision_target": 0.95,
+  "threshold_margin": 0.05,
+  "threshold_full": 0.4,
+  "threshold_naive": 0.95,
+  "test": {
+    "threshold-only @ its own safe threshold": {
+      "threshold": 0.95,
+      "answerable": 45,
+      "hit_rate": 0.0,
+      "correct_hits": 0,
+      "wrong_hits": 0,
+      "wrong_hits_in_hard_negative_family": 0,
+      "hit_precision": null,
+      "recall_of_possible_hits": 0.0,
+      "llm_calls": 45,
+      "llm_calls_baseline_no_cache": 45,
+      "llm_call_reduction": 0.0,
+      "oos_refused_rate": 1.0,
+      "oos_cache_hits": 0,
+      "injection_blocked_rate": 1.0,
+      "tokens_saved_est": 0,
+      "tokens_spent_est": 14507,
+      "token_reduction_est": 0.0,
+      "measured_ms_hit_mean": null,
+      "measured_ms_hit_p95": null,
+      "measured_ms_llm_path_mean_excl_llm": 7.362211111111111,
+      "modelled_e2e_ms_mean_with_cache": 807.3622111111112
+    },
+    "threshold-only (baseline) @ 0.40": {
+      "threshold": 0.4,
+      "answerable": 45,
+      "hit_rate": 0.7177777777777777,
+      "correct_hits": 23.2,
+      "wrong_hits": 9.1,
+      "wrong_hits_in_hard_negative_family": 5.4,
+      "hit_precision": 0.7182662538699691,
+      "recall_of_possible_hits": 0.6444444444444444,
+      "llm_calls": 12.7,
+      "llm_calls_baseline_no_cache": 45,
+      "llm_call_reduction": 0.7177777777777778,
+      "oos_refused_rate": 1.0,
+      "oos_cache_hits": 0,
+      "injection_blocked_rate": 1.0,
+      "tokens_saved_est": 10435.2,
+      "tokens_spent_est": 4112,
+      "token_reduction_est": 0.7173339199296085,
+      "measured_ms_hit_mean": 5.930622291021672,
+      "measured_ms_hit_p95": 8.435,
+      "measured_ms_llm_path_mean_excl_llm": 6.519236220472441,
+      "modelled_e2e_ms_mean_with_cache": 231.87452
+    },
+    "+ entity guard @ 0.40": {
+      "threshold": 0.4,
+      "answerable": 45,
+      "hit_rate": 0.6466666666666667,
+      "correct_hits": 23.3,
+      "wrong_hits": 5.8,
+      "wrong_hits_in_hard_negative_family": 2.3,
+      "hit_precision": 0.8006872852233676,
+      "recall_of_possible_hits": 0.6472222222222223,
+      "llm_calls": 15.9,
+      "llm_calls_baseline_no_cache": 45,
+      "llm_call_reduction": 0.6466666666666667,
+      "oos_refused_rate": 1.0,
+      "oos_cache_hits": 0,
+      "injection_blocked_rate": 1.0,
+      "tokens_saved_est": 9393.8,
+      "tokens_spent_est": 5145.9,
+      "token_reduction_est": 0.6460793551448792,
+      "measured_ms_hit_mean": 6.532621993127147,
+      "measured_ms_hit_p95": 9.098,
+      "measured_ms_llm_path_mean_excl_llm": 7.349811320754717,
+      "modelled_e2e_ms_mean_with_cache": 289.4880288888889
+    },
+    "+ retrieval consistency @ 0.40": {
+      "threshold": 0.4,
+      "answerable": 45,
+      "hit_rate": 0.7066666666666667,
+      "correct_hits": 23.5,
+      "wrong_hits": 8.3,
+      "wrong_hits_in_hard_negative_family": 5.1,
+      "hit_precision": 0.7389937106918238,
+      "recall_of_possible_hits": 0.6527777777777778,
+      "llm_calls": 13.2,
+      "llm_calls_baseline_no_cache": 45,
+      "llm_call_reduction": 0.7066666666666667,
+      "oos_refused_rate": 1.0,
+      "oos_cache_hits": 0,
+      "injection_blocked_rate": 1.0,
+      "tokens_saved_est": 10261.9,
+      "tokens_spent_est": 4271.4,
+      "token_reduction_est": 0.7060956561826977,
+      "measured_ms_hit_mean": 6.348845911949685,
+      "measured_ms_hit_p95": 8.792,
+      "measured_ms_llm_path_mean_excl_llm": 6.77764393939394,
+      "modelled_e2e_ms_mean_with_cache": 241.14129333333332
+    },
+    "full (both guards) @ 0.40": {
+      "threshold": 0.4,
+      "answerable": 45,
+      "hit_rate": 0.6333333333333333,
+      "correct_hits": 23.5,
+      "wrong_hits": 5,
+      "wrong_hits_in_hard_negative_family": 2.3,
+      "hit_precision": 0.8245614035087719,
+      "recall_of_possible_hits": 0.6527777777777778,
+      "llm_calls": 16.5,
+      "llm_calls_baseline_no_cache": 45,
+      "llm_call_reduction": 0.6333333333333333,
+      "oos_refused_rate": 1.0,
+      "oos_cache_hits": 0,
+      "injection_blocked_rate": 1.0,
+      "tokens_saved_est": 9192.8,
+      "tokens_spent_est": 5337.9,
+      "token_reduction_est": 0.6326467410379404,
+      "measured_ms_hit_mean": 6.675063157894737,
+      "measured_ms_hit_p95": 9.115,
+      "measured_ms_llm_path_mean_excl_llm": 7.178339393939394,
+      "modelled_e2e_ms_mean_with_cache": 300.19293111111114
+    }
+  },
+  "test_sweep": {
+    "threshold-only": [
+      {
+        "threshold": 0.3,
+        "hit_rate": 0.7977777777777777,
+        "hit_precision": 0.6128133704735377,
+        "recall_of_possible_hits": 0.6111111111111112,
+        "wrong_hits": 13.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.35,
+        "hit_rate": 0.768888888888889,
+        "hit_precision": 0.6271676300578034,
+        "recall_of_possible_hits": 0.6027777777777777,
+        "wrong_hits": 12.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.4,
+        "hit_rate": 0.7177777777777777,
+        "hit_precision": 0.7182662538699691,
+        "recall_of_possible_hits": 0.6444444444444444,
+        "wrong_hits": 9.1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.45,
+        "hit_rate": 0.64,
+        "hit_precision": 0.798611111111111,
+        "recall_of_possible_hits": 0.6388888888888888,
+        "wrong_hits": 5.8,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.5,
+        "hit_rate": 0.5977777777777777,
+        "hit_precision": 0.8029739776951674,
+        "recall_of_possible_hits": 0.6000000000000001,
+        "wrong_hits": 5.3,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.55,
+        "hit_rate": 0.5311111111111111,
+        "hit_precision": 0.8619246861924688,
+        "recall_of_possible_hits": 0.5722222222222223,
+        "wrong_hits": 3.3,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.6,
+        "hit_rate": 0.4711111111111111,
+        "hit_precision": 0.8584905660377359,
+        "recall_of_possible_hits": 0.5055555555555555,
+        "wrong_hits": 3,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.65,
+        "hit_rate": 0.4177777777777778,
+        "hit_precision": 0.8617021276595744,
+        "recall_of_possible_hits": 0.44999999999999996,
+        "wrong_hits": 2.6,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.7,
+        "hit_rate": 0.37777777777777777,
+        "hit_precision": 0.8176470588235294,
+        "recall_of_possible_hits": 0.3861111111111111,
+        "wrong_hits": 3.1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.75,
+        "hit_rate": 0.3333333333333333,
+        "hit_precision": 0.8066666666666666,
+        "recall_of_possible_hits": 0.3361111111111111,
+        "wrong_hits": 2.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.8,
+        "hit_rate": 0.1622222222222222,
+        "hit_precision": 0.8767123287671234,
+        "recall_of_possible_hits": 0.17777777777777778,
+        "wrong_hits": 0.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.85,
+        "hit_rate": 0.09555555555555555,
+        "hit_precision": 0.7674418604651163,
+        "recall_of_possible_hits": 0.09166666666666666,
+        "wrong_hits": 1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.9,
+        "hit_rate": 0.022222222222222223,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.027777777777777776,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.95,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      }
+    ],
+    "full": [
+      {
+        "threshold": 0.3,
+        "hit_rate": 0.6866666666666666,
+        "hit_precision": 0.7378640776699029,
+        "recall_of_possible_hits": 0.6333333333333333,
+        "wrong_hits": 8.1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.35,
+        "hit_rate": 0.66,
+        "hit_precision": 0.7542087542087542,
+        "recall_of_possible_hits": 0.6222222222222222,
+        "wrong_hits": 7.3,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.4,
+        "hit_rate": 0.6333333333333333,
+        "hit_precision": 0.8245614035087719,
+        "recall_of_possible_hits": 0.6527777777777778,
+        "wrong_hits": 5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.45,
+        "hit_rate": 0.5955555555555556,
+        "hit_precision": 0.8694029850746269,
+        "recall_of_possible_hits": 0.6472222222222223,
+        "wrong_hits": 3.5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.5,
+        "hit_rate": 0.5466666666666667,
+        "hit_precision": 0.8821138211382114,
+        "recall_of_possible_hits": 0.6027777777777777,
+        "wrong_hits": 2.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.55,
+        "hit_rate": 0.48000000000000004,
+        "hit_precision": 0.9675925925925924,
+        "recall_of_possible_hits": 0.5805555555555555,
+        "wrong_hits": 0.7,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.6,
+        "hit_rate": 0.4133333333333334,
+        "hit_precision": 0.9892473118279569,
+        "recall_of_possible_hits": 0.5111111111111111,
+        "wrong_hits": 0.2,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.65,
+        "hit_rate": 0.3711111111111111,
+        "hit_precision": 0.9940119760479044,
+        "recall_of_possible_hits": 0.46111111111111114,
+        "wrong_hits": 0.1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.7,
+        "hit_rate": 0.32222222222222224,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.4027777777777778,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.75,
+        "hit_rate": 0.26222222222222225,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.3277777777777778,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.8,
+        "hit_rate": 0.1488888888888889,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.18611111111111112,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.85,
+        "hit_rate": 0.07333333333333333,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.09166666666666666,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.9,
+        "hit_rate": 0.022222222222222223,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.027777777777777776,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.95,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      }
+    ]
+  },
+  "tune_sweep": {
+    "threshold-only": [
+      {
+        "threshold": 0.3,
+        "hit_rate": 0.851111111111111,
+        "hit_precision": 0.5822454308093995,
+        "recall_of_possible_hits": 0.6194444444444445,
+        "wrong_hits": 16,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.35,
+        "hit_rate": 0.8311111111111111,
+        "hit_precision": 0.6336898395721925,
+        "recall_of_possible_hits": 0.6583333333333333,
+        "wrong_hits": 13.7,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.4,
+        "hit_rate": 0.8,
+        "hit_precision": 0.6805555555555556,
+        "recall_of_possible_hits": 0.6805555555555556,
+        "wrong_hits": 11.5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.45,
+        "hit_rate": 0.7555555555555555,
+        "hit_precision": 0.7205882352941176,
+        "recall_of_possible_hits": 0.6805555555555556,
+        "wrong_hits": 9.5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.5,
+        "hit_rate": 0.6911111111111111,
+        "hit_precision": 0.7588424437299035,
+        "recall_of_possible_hits": 0.6555555555555556,
+        "wrong_hits": 7.5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.55,
+        "hit_rate": 0.6555555555555556,
+        "hit_precision": 0.8033898305084746,
+        "recall_of_possible_hits": 0.6583333333333333,
+        "wrong_hits": 5.8,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.6,
+        "hit_rate": 0.6088888888888888,
+        "hit_precision": 0.8211678832116789,
+        "recall_of_possible_hits": 0.625,
+        "wrong_hits": 4.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.65,
+        "hit_rate": 0.5511111111111111,
+        "hit_precision": 0.814516129032258,
+        "recall_of_possible_hits": 0.5611111111111111,
+        "wrong_hits": 4.6,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.7,
+        "hit_rate": 0.4422222222222222,
+        "hit_precision": 0.8140703517587939,
+        "recall_of_possible_hits": 0.44999999999999996,
+        "wrong_hits": 3.7,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.75,
+        "hit_rate": 0.29333333333333333,
+        "hit_precision": 0.8181818181818182,
+        "recall_of_possible_hits": 0.30000000000000004,
+        "wrong_hits": 2.4,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.8,
+        "hit_rate": 0.19555555555555557,
+        "hit_precision": 0.8863636363636362,
+        "recall_of_possible_hits": 0.21666666666666667,
+        "wrong_hits": 1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.85,
+        "hit_rate": 0.08888888888888889,
+        "hit_precision": 0.75,
+        "recall_of_possible_hits": 0.08333333333333333,
+        "wrong_hits": 1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.9,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.95,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      }
+    ],
+    "full": [
+      {
+        "threshold": 0.3,
+        "hit_rate": 0.7866666666666666,
+        "hit_precision": 0.9661016949152543,
+        "recall_of_possible_hits": 0.9500000000000001,
+        "wrong_hits": 1.2,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.35,
+        "hit_rate": 0.7844444444444444,
+        "hit_precision": 0.9745042492917847,
+        "recall_of_possible_hits": 0.9555555555555555,
+        "wrong_hits": 0.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.4,
+        "hit_rate": 0.76,
+        "hit_precision": 0.9736842105263156,
+        "recall_of_possible_hits": 0.9249999999999999,
+        "wrong_hits": 0.9,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.45,
+        "hit_rate": 0.731111111111111,
+        "hit_precision": 0.9696048632218845,
+        "recall_of_possible_hits": 0.8861111111111111,
+        "wrong_hits": 1,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.5,
+        "hit_rate": 0.6622222222222223,
+        "hit_precision": 0.9832214765100671,
+        "recall_of_possible_hits": 0.8138888888888889,
+        "wrong_hits": 0.5,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.55,
+        "hit_rate": 0.6266666666666667,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.7833333333333333,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.6,
+        "hit_rate": 0.5844444444444444,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.7305555555555556,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.65,
+        "hit_rate": 0.5,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.625,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.7,
+        "hit_rate": 0.37555555555555553,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.4694444444444444,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.75,
+        "hit_rate": 0.2577777777777778,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.3222222222222222,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.8,
+        "hit_rate": 0.1911111111111111,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.23888888888888887,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.85,
+        "hit_rate": 0.06666666666666667,
+        "hit_precision": 1.0,
+        "recall_of_possible_hits": 0.08333333333333333,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.9,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      },
+      {
+        "threshold": 0.95,
+        "hit_rate": 0.0,
+        "hit_precision": null,
+        "recall_of_possible_hits": 0.0,
+        "wrong_hits": 0,
+        "oos_cache_hits": 0
+      }
+    ]
+  },
+  "naive_false_hit_examples": [
+    {
+      "asked": "What support do Pro customers get?",
+      "served_answer_for": "Is there phone support for Enterprise?",
+      "sim": 0.5023
+    },
+    {
+      "asked": "Are my files backed up?",
+      "served_answer_for": "When are deleted files permanently removed?",
+      "sim": 0.4507
+    },
+    {
+      "asked": "How quickly does Enterprise support respond?",
+      "served_answer_for": "Pro plan support response time?",
+      "sim": 0.7018
+    },
+    {
+      "asked": "Is there email support on Pro?",
+      "served_answer_for": "Is there phone support for Enterprise?",
+      "sim": 0.5034
+    },
+    {
+      "asked": "Enterprise plan support response time?",
+      "served_answer_for": "Pro plan support response time?",
+      "sim": 0.8772
+    },
+    {
+      "asked": "Where is my data stored?",
+      "served_answer_for": "What happens to my data after I close my account?",
+      "sim": 0.5717
+    }
+  ]
+}

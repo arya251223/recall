@@ -1,0 +1,5 @@
+numpy>=1.24
+
+# Optional upgrades (the app runs without them):
+# google-genai>=1.0        # real Gemini answers (set GEMINI_API_KEY)
+# sentence-transformers    # dense MiniLM embeddings (set EMBEDDER=minilm)

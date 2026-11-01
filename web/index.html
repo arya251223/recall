@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recall · semantic-cache RAG</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Recall</h1>
+    <p class="tag">Ask your documents. Ask again in different words, and the answer comes back without a model call.</p>
+  </div>
+  <div class="badges" id="badges" aria-label="Runtime configuration"></div>
+</header>
+
+<main class="grid">
+  <section class="col-main" aria-labelledby="ask-h">
+    <h2 id="ask-h" class="sr">Ask a question</h2>
+    <form id="ask-form" class="ask">
+      <label for="q" class="sr">Your question</label>
+      <textarea id="q" rows="2" maxlength="500" placeholder="e.g. How much does the Pro plan cost?" required></textarea>
+      <div class="ask-row">
+        <div class="chips" id="chips" aria-label="Example questions"></div>
+        <button type="submit" id="ask-btn" class="primary">Ask</button>
+      </div>
+      <label class="check"><input type="checkbox" id="use-cache" checked> Use semantic cache</label>
+    </form>
+
+    <div id="result" hidden>
+      <ol class="route" id="route" aria-label="Path this question took"></ol>
+      <div class="verdict" id="verdict"></div>
+      <article class="answer" id="answer"></article>
+      <div id="rejected" class="note warn" hidden></div>
+      <h3>Sources</h3>
+      <ul class="sources" id="sources"></ul>
+    </div>
+    <p class="empty" id="empty">Ask something, then ask it again with different wording. The route above the answer shows which steps ran and which were skipped.</p>
+  </section>
+
+  <aside class="col-side">
+    <section class="panel" aria-labelledby="live-h">
+      <h2 id="live-h">Live numbers</h2>
+      <dl class="tiles" id="tiles"></dl>
+      <div class="lat" id="lat"></div>
+      <div class="strip" id="strip" role="img" aria-label="Latency of the most recent requests"></div>
+      <p class="legend"><i class="sw cache"></i>cache hit <i class="sw llm"></i>model call <i class="sw other"></i>refused or blocked</p>
+    </section>
+
+    <section class="panel" aria-labelledby="tune-h">
+      <h2 id="tune-h">Tuning</h2>
+      <label class="slider">Similarity threshold <output id="thr-out">0.00</output>
+        <input type="range" id="thr" min="0.30" max="0.99" step="0.01">
+      </label>
+      <p class="hint">Lower catches more rephrasings and risks wrong answers. Higher is safer and saves less.</p>
+      <label class="check"><input type="checkbox" id="g-entity"> Entity guard <span class="hint">(Pro ≠ Business)</span></label>
+      <label class="check"><input type="checkbox" id="g-consist"> Retrieval-consistency guard</label>
+      <button type="button" id="clear-cache" class="ghost">Clear cache</button>
+    </section>
+
+    <section class="panel" aria-labelledby="cache-h">
+      <h2 id="cache-h">Cached answers <span class="count" id="cache-count"></span></h2>
+      <ul class="list" id="cache-list"></ul>
+    </section>
+
+    <section class="panel" aria-labelledby="kb-h">
+      <h2 id="kb-h">Knowledge base <span class="count" id="kb-count"></span></h2>
+      <ul class="list" id="kb-list"></ul>
+      <form id="doc-form" class="docform">
+        <input id="doc-title" placeholder="Document title" maxlength="80" required>
+        <textarea id="doc-text" rows="3" placeholder="Paste text to add. Cached answers it could change are dropped automatically." required></textarea>
+        <button type="submit" class="ghost">Add document</button>
+      </form>
+    </section>
+  </aside>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="/app.js"></script>
+</body>
+</html>

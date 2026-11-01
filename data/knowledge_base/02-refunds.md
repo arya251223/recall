@@ -1,0 +1,2 @@
+# Refunds and cancellation
+Annual plans come with a 30-day money-back guarantee on the first purchase. Contact support within 30 days of the first annual payment to receive a full refund. Monthly plans can be cancelled at any time and stay active until the end of the current billing period. Monthly plans are not refunded pro rata for unused days. Approved refunds are returned to the original payment method within 5 to 7 business days.
